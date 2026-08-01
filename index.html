@@ -8,11 +8,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#3a5a78; --dusk:#1c2b42;
-  --panel-bg:#101c2b; --gold:#eaa213; --gold-dark:#8a5a12;
-  --jade:#2f9d6f; --red:#d8432b; --purple:#a855c7; --dim:#94a3b8; --white:#f8fafc;
+  --bg:#6a4830; --dusk:#241812;
+  --panel-bg:#1d1308; --gold:#eaa213; --gold-dark:#8a5a12;
+  --jade:#8f9d55; --red:#b8532b; --purple:#9a6a86; --dim:#b39a7d; --white:#f4ecdd;
   --shadow-gold:0 0 0 2px #000,0 0 0 4px var(--gold-dark),4px 4px 0 #000;
-  --shadow-jade:0 0 0 2px #000,0 0 0 4px #175c40,4px 4px 0 #000;
+  --shadow-jade:0 0 0 2px #000,0 0 0 4px #4d5a28,4px 4px 0 #000;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html,body{height:100%;background:linear-gradient(180deg,var(--dusk) 0%,var(--bg) 100%);color:var(--white);
@@ -45,31 +45,31 @@ html,body{height:100%;background:linear-gradient(180deg,var(--dusk) 0%,var(--bg)
 #top-bar{width:100%;max-width:960px;display:flex;align-items:center;justify-content:space-between;padding:8px 10px;margin-bottom:14px;border-bottom:2px solid rgba(0,0,0,.25);gap:8px;flex-wrap:wrap;}
 .game-title{font-size:13px;color:var(--gold);text-shadow:2px 2px 0 #000;letter-spacing:2px;cursor:pointer;user-select:none;}
 @keyframes konami-flash{0%,100%{filter:none;}50%{filter:invert(1) hue-rotate(180deg);}}
-.secret-window.legendary{border-color:var(--purple);box-shadow:0 0 40px rgba(168,85,199,.6);}
-.egg-hint{font-size:11px;color:#3c5872;text-align:center;margin-top:8px;letter-spacing:1px;}
+.secret-window.legendary{border-color:var(--purple);box-shadow:0 0 40px rgba(154,106,134,.6);}
+.egg-hint{font-size:11px;color:#6b5236;text-align:center;margin-top:8px;letter-spacing:1px;}
 .nav-tabs{display:flex;gap:4px;flex-wrap:wrap;}
-.nav-tab{font-family:"Press Start 2P",monospace;font-size:12px;padding:9px 14px;background:rgba(16,28,43,.85);border:2px solid #2c3e52;color:var(--dim);cursor:pointer;letter-spacing:1px;transition:all .1s;}
-.nav-tab:hover{color:var(--white);border-color:#5b7186;}
-.nav-tab.active{background:#16283b;color:var(--gold);border-color:var(--gold);}
+.nav-tab{font-family:"Press Start 2P",monospace;font-size:12px;padding:9px 14px;background:rgba(16,28,43,.85);border:2px solid #4a3524;color:var(--dim);cursor:pointer;letter-spacing:1px;transition:all .1s;}
+.nav-tab:hover{color:var(--white);border-color:#8a6b48;}
+.nav-tab.active{background:#2a1b0e;color:var(--gold);border-color:var(--gold);}
 #hud-stats{font-size:11px;color:var(--dim);text-align:right;line-height:1.9;}
 #hud-stats b{color:var(--jade);}
 
 .search-wrap{position:relative;flex:1;min-width:200px;max-width:280px;}
 .search-wrap i{position:absolute;left:8px;top:50%;transform:translateY(-50%);font-size:13px;color:var(--gold);pointer-events:none;}
-#search{width:100%;background:rgba(0,0,0,.55);border:2px solid #2c3e52;border-bottom:2px solid var(--gold-dark);color:var(--white);
+#search{width:100%;background:rgba(0,0,0,.55);border:2px solid #4a3524;border-bottom:2px solid var(--gold-dark);color:var(--white);
   font-family:"Press Start 2P",monospace;font-size:13px;padding:9px 9px 9px 22px;outline:none;transition:border-color .2s;}
 #search:focus{border-color:var(--gold);}
-#search::placeholder{color:#546276;}
+#search::placeholder{color:#7d6146;}
 
 .screen{display:none;width:100%;max-width:960px;animation:fadeIn .3s ease;}
 .screen.active{display:block;}
 @keyframes fadeIn{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
 
 /* PANELS */
-.panel{background:var(--panel-bg);border:3px solid #2c3e52;box-shadow:0 0 0 2px #000,4px 4px 0 #000;position:relative;}
-.panel-gold{background:linear-gradient(180deg,#182a3d 0%,#101c2b 100%);border:3px solid var(--gold);box-shadow:var(--shadow-gold);}
+.panel{background:var(--panel-bg);border:3px solid #4a3524;box-shadow:0 0 0 2px #000,4px 4px 0 #000;position:relative;}
+.panel-gold{background:linear-gradient(180deg,#2c1d10 0%,#1d1308 100%);border:3px solid var(--gold);box-shadow:var(--shadow-gold);}
 .panel-jade{border:3px solid var(--jade);box-shadow:var(--shadow-jade);}
-.panel-label{position:absolute;top:-11px;left:10px;background:#182a3d;border:2px solid var(--gold-dark);padding:2px 8px;font-size:12px;color:var(--gold);letter-spacing:2px;text-transform:uppercase;white-space:nowrap;z-index:5;}
+.panel-label{position:absolute;top:-11px;left:10px;background:#2c1d10;border:2px solid var(--gold-dark);padding:2px 8px;font-size:12px;color:var(--gold);letter-spacing:2px;text-transform:uppercase;white-space:nowrap;z-index:5;}
 
 /* BUTTONS */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:14px 20px;font-family:"Press Start 2P",monospace;font-size:13px;
@@ -78,15 +78,15 @@ html,body{height:100%;background:linear-gradient(180deg,var(--dusk) 0%,var(--bg)
 .btn:active{transform:translate(3px,3px);box-shadow:none!important;}
 .btn-gold{background:var(--gold);color:#000;border-color:#fff;box-shadow:3px 3px 0 #000,5px 5px 0 var(--gold-dark);}
 .btn-gold:hover{background:#f7cf6a;}
-.btn-jade{background:#0f3d29;color:var(--jade);border-color:var(--jade);box-shadow:3px 3px 0 #000;}
-.btn-jade:hover{background:#175c40;}
-.btn-dark{background:#182a3d;color:var(--white);border-color:#2c3e52;box-shadow:3px 3px 0 #000;}
-.btn-dark:hover{background:#243a52;}
+.btn-jade{background:#35401b;color:var(--jade);border-color:var(--jade);box-shadow:3px 3px 0 #000;}
+.btn-jade:hover{background:#4d5a28;}
+.btn-dark{background:#2c1d10;color:var(--white);border-color:#4a3524;box-shadow:3px 3px 0 #000;}
+.btn-dark:hover{background:#392614;}
 
 /* DIALOG BOX */
-.dialog-box{background:linear-gradient(180deg,#1c3a5e 0%,#101c2b 100%);border:3px solid var(--white);
-  box-shadow:0 0 0 2px #000,0 0 0 4px #0a4a78,4px 4px 0 #000;padding:16px 18px;position:relative;}
-.dialog-speaker{position:absolute;top:-11px;left:10px;background:#1c3a5e;border:2px solid var(--white);padding:2px 8px;font-size:12px;color:var(--gold);letter-spacing:1px;}
+.dialog-box{background:linear-gradient(180deg,#3a2614 0%,#1d1308 100%);border:3px solid var(--white);
+  box-shadow:0 0 0 2px #000,0 0 0 4px #6e4a1c,4px 4px 0 #000;padding:16px 18px;position:relative;}
+.dialog-speaker{position:absolute;top:-11px;left:10px;background:#3a2614;border:2px solid var(--white);padding:2px 8px;font-size:12px;color:var(--gold);letter-spacing:1px;}
 .dialog-cursor{display:inline-block;width:8px;height:8px;background:var(--gold);vertical-align:middle;margin-left:4px;animation:blink .7s step-end infinite;}
 .next-indicator{display:none;font-size:13px;color:var(--gold);animation:float .6s ease-in-out infinite;margin-top:10px;}
 @keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-5px);}}
@@ -94,7 +94,7 @@ html,body{height:100%;background:linear-gradient(180deg,var(--dusk) 0%,var(--bg)
 /* PATRONS (brand stalls) */
 .patron-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(126px,1fr));gap:12px;}
 .patron{display:flex;flex-direction:column;align-items:center;gap:6px;cursor:pointer;transition:transform .15s;padding:10px 6px;
-  background:rgba(0,0,0,.28);border:2px solid #2c3e52;}
+  background:rgba(0,0,0,.28);border:2px solid #4a3524;}
 .patron:hover{transform:translateY(-4px);border-color:var(--gold);}
 .patron.is-active{border-color:var(--gold);background:rgba(234,162,19,.14);}
 .patron .emoji{font-size:38px;filter:drop-shadow(0 3px 3px rgba(0,0,0,.7));}
@@ -105,17 +105,17 @@ html,body{height:100%;background:linear-gradient(180deg,var(--dusk) 0%,var(--bg)
 .loot-grid{display:grid;grid-template-columns:1fr;gap:10px;margin-top:14px;}
 @media (min-width:640px){ .loot-grid{grid-template-columns:1fr 1fr;} }
 @media (min-width:960px){ .loot-grid{grid-template-columns:1fr 1fr 1fr;} }
-.item-card{background:rgba(0,0,0,.32);border:2px solid #2c3e52;padding:12px;transition:transform .12s,border-color .12s;}
+.item-card{background:rgba(0,0,0,.32);border:2px solid #4a3524;padding:12px;transition:transform .12s,border-color .12s;}
 .item-card:hover{transform:translate(-2px,-2px);border-color:var(--gold);}
 .item-card .tag{font-size:11px;color:var(--jade);letter-spacing:1px;}
 .item-card .pname{font-size:13px;color:var(--white);line-height:1.9;margin:8px 0 6px;}
 .item-card .variant{font-size:11px;color:var(--dim);line-height:2;}
-.item-card .price-row{display:flex;justify-content:space-between;align-items:center;margin-top:10px;padding-top:8px;border-top:1px dashed #334155;}
+.item-card .price-row{display:flex;justify-content:space-between;align-items:center;margin-top:10px;padding-top:8px;border-top:1px dashed #4a3524;}
 .item-card .price{font-size:13px;color:var(--gold);}
 
 /* PAGE HEADER */
 .page-header{text-align:center;margin-bottom:14px;}
-.page-header .tag{display:inline-block;background:var(--red);border:2px solid #f08a72;color:#fff;font-size:11px;padding:3px 10px;letter-spacing:2px;margin-bottom:8px;}
+.page-header .tag{display:inline-block;background:var(--red);border:2px solid #d98a68;color:#fff;font-size:11px;padding:3px 10px;letter-spacing:2px;margin-bottom:8px;}
 .page-header h1{font-size:clamp(16px,4vw,20px);color:var(--gold);letter-spacing:2px;line-height:1.6;text-shadow:2px 2px 0 #000;}
 
 /* TREASURE CHEST */
@@ -124,16 +124,16 @@ html,body{height:100%;background:linear-gradient(180deg,var(--dusk) 0%,var(--bg)
 @keyframes chest-glow{0%,100%{filter:drop-shadow(0 2px 4px rgba(0,0,0,.8));}50%{filter:drop-shadow(0 2px 14px rgba(234,162,19,.9));}}
 
 /* QUEST OBJECTIVES */
-.objective{display:flex;align-items:center;gap:10px;padding:8px 4px;font-size:12px;color:var(--dim);border-bottom:1px dashed #253449;}
+.objective{display:flex;align-items:center;gap:10px;padding:8px 4px;font-size:12px;color:var(--dim);border-bottom:1px dashed #382818;}
 .objective:last-child{border-bottom:none;}
 .objective .box{width:14px;height:14px;border:2px solid var(--gold-dark);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:13px;}
 .objective.done{color:var(--jade);}
-.objective.done .box{border-color:var(--jade);background:rgba(47,157,111,.2);color:var(--jade);}
+.objective.done .box{border-color:var(--jade);background:rgba(143,157,85,.2);color:var(--jade);}
 
 /* SECRET / CHEST MODAL */
 #secret-modal{position:fixed;inset:0;z-index:9500;background:rgba(0,0,0,.9);display:none;align-items:center;justify-content:center;flex-direction:column;gap:16px;}
 #secret-modal.active{display:flex;animation:fadeIn .4s ease;}
-.secret-window{background:#0b1620;border:4px solid var(--gold);padding:26px;text-align:center;max-width:380px;width:90%;box-shadow:0 0 40px rgba(234,162,19,.5);}
+.secret-window{background:#170f07;border:4px solid var(--gold);padding:26px;text-align:center;max-width:380px;width:90%;box-shadow:0 0 40px rgba(234,162,19,.5);}
 #secret-title{font-size:16px;color:var(--jade);margin:10px 0;text-shadow:2px 2px 0 #000;line-height:1.8;}
 #secret-desc{font-size:12px;color:var(--white);margin:8px 0;line-height:2.1;}
 #secret-reward{font-size:13px;color:var(--gold);margin:12px 0;}
@@ -144,10 +144,29 @@ html,body{height:100%;background:linear-gradient(180deg,var(--dusk) 0%,var(--bg)
 @keyframes dmgRise{0%{opacity:1;transform:translateY(0) scale(1);}20%{opacity:1;transform:translateY(-10px) scale(1.15);}100%{opacity:0;transform:translateY(-60px) scale(.9);}}
 
 .match-count{font-size:11px;color:var(--dim);margin:10px 0 4px;}
-.footer-note{text-align:center;margin-top:26px;font-size:11px;color:#3c5872;letter-spacing:1px;line-height:2;}
+.footer-note{text-align:center;margin-top:26px;font-size:11px;color:#6b5236;letter-spacing:1px;line-height:2;}
 .hint{font-size:11px;color:var(--dim);text-align:center;padding:14px;}
 .empty-floor{display:none;text-align:center;padding:30px 10px;}
 .empty-floor.show{display:block;}
+
+/* DIALOGUE CHOICES */
+.choices{display:none;flex-direction:column;gap:8px;margin-top:14px;}
+.choices.show{display:flex;}
+.choice-btn{font-family:"Press Start 2P",monospace;font-size:12px;text-align:left;line-height:1.7;
+  padding:11px 12px 11px 30px;background:rgba(0,0,0,.3);border:2px solid var(--gold-dark);color:var(--white);
+  cursor:pointer;position:relative;transition:all .1s;letter-spacing:1px;}
+.choice-btn:hover{background:rgba(224,162,60,.16);border-color:var(--gold);color:var(--gold);transform:translateX(3px);}
+.choice-btn::before{content:"▶";position:absolute;left:11px;top:50%;transform:translateY(-50%);color:var(--gold);font-size:10px;}
+.choice-btn:disabled{opacity:.4;cursor:default;color:var(--dim);}
+.choice-btn:disabled:hover{background:rgba(0,0,0,.3);border-color:var(--gold-dark);transform:none;}
+.lore-line{color:var(--jade)!important;}
+
+/* EXPLORED STAMP */
+.patron{position:relative;}
+.patron.explored{border-color:var(--jade);}
+.patron.explored::after{content:"★";position:absolute;top:2px;right:4px;font-size:13px;color:var(--jade);
+  text-shadow:1px 1px 0 #000;}
+.patron.storied::before{content:"📜";position:absolute;top:2px;left:4px;font-size:12px;}
 </style>
 </head>
 <body>
@@ -159,7 +178,7 @@ html,body{height:100%;background:linear-gradient(180deg,var(--dusk) 0%,var(--bg)
   <div class="title-sub">產品探索紀錄 ★ RPG EDITION</div>
   <div class="press-start">▶ PRESS START / 點擊開始</div>
   <div class="title-hint">V1.0</div>
-  <div class="title-version">17 BRANDS</div>
+  <div class="title-version">9 BRANDS</div>
   <div id="title-copyright">© TABE 札哈木樂原市集 探索紀錄</div>
 </div>
 
@@ -174,7 +193,7 @@ html,body{height:100%;background:linear-gradient(180deg,var(--dusk) 0%,var(--bg)
 <!-- SECRET / CHEST MODAL -->
 <div id="secret-modal">
   <div class="secret-window">
-    <div style="font-size:40px;">🎁</div>
+    <div style="font-size:40px;">✨</div>
     <div id="secret-title">???</div>
     <div id="secret-desc"></div>
     <div id="secret-reward"></div>
@@ -188,11 +207,10 @@ html,body{height:100%;background:linear-gradient(180deg,var(--dusk) 0%,var(--bg)
     <div class="nav-tabs">
       <button class="nav-tab active" id="tab-home" onclick="switchScreen('home')">🏘️ 大廳</button>
       <button class="nav-tab" id="tab-about" onclick="switchScreen('about')">📖 LiMA</button>
-      <button class="nav-tab" id="tab-food" onclick="switchScreen('food')">🍜 01F</button>
-      <button class="nav-tab" id="tab-craft" onclick="switchScreen('craft')">🧵 02F</button>
+      <button class="nav-tab" id="tab-craft" onclick="switchScreen('craft')">🧵 工藝坊</button>
     </div>
     <div class="search-wrap"><i>🔍</i><input id="search" type="search" placeholder="搜尋品牌/商品..." oninput="onSearch(this.value)"></div>
-    <div id="hud-stats">探索攤位：<b id="hud-explored">0</b>/17<br>神秘寶箱：<b id="hud-chest">0</b>/1<br>隱藏彩蛋：<b id="hud-easter">0</b>/1</div>
+    <div id="hud-stats">探索攤位：<b id="hud-explored">0</b>/9<br>隨機探索：<b id="hud-chest">0</b>/1<br>隱藏彩蛋：<b id="hud-easter">0</b>/1</div>
   </div>
 
   <!-- HOME SCREEN -->
@@ -211,22 +229,21 @@ html,body{height:100%;background:linear-gradient(180deg,var(--dusk) 0%,var(--bg)
     <div style="display:grid;grid-template-columns:1fr;gap:14px;">
       <div class="panel panel-gold" style="padding:16px;position:relative;">
         <div class="panel-label">任務目標</div>
-        <div id="objective-food" class="objective"><div class="box">☐</div><span>拜訪 01F 農特美食街（<span id="obj-food-count">0</span>/8）</span></div>
-        <div id="objective-craft" class="objective"><div class="box">☐</div><span>拜訪 02F 文創工藝坊（<span id="obj-craft-count">0</span>/9）</span></div>
-        <div id="objective-chest" class="objective"><div class="box">☐</div><span>打開市集裡的神秘寶箱</span></div>
+        <div id="objective-craft" class="objective"><div class="box">☐</div><span>拜訪文創工藝坊全部攤位（<span id="obj-craft-count">0</span>/9）</span></div>
+        <div id="objective-story" class="objective"><div class="box">☐</div><span>聽完 3 位職人的工藝故事（<span id="obj-story-count">0</span>/3）</span></div>
+        <div id="objective-chest" class="objective"><div class="box">☐</div><span>用「隨機探索」認識一個品牌</span></div>
         <div id="objective-easter" class="objective"><div class="box">☐</div><span>發現市集深處的隱藏彩蛋（？）</span></div>
         <div style="display:flex;gap:10px;margin-top:16px;flex-wrap:wrap;">
           <button class="btn btn-gold" onclick="switchScreen('about')">📖 LiMA 是誰？</button>
-          <button class="btn btn-jade" onclick="switchScreen('food')">前往 01F ▶</button>
-          <button class="btn btn-jade" onclick="switchScreen('craft')">前往 02F ▶</button>
+          <button class="btn btn-jade" onclick="switchScreen('craft')">🧵 前往工藝坊 ▶</button>
         </div>
       </div>
 
       <div class="panel" style="padding:16px;text-align:center;position:relative;">
-        <div class="panel-label">神秘寶箱</div>
-        <p style="font-size:11px;color:var(--dim);margin-bottom:10px;">點擊寶箱，隨機發現一件市集戰利品！</p>
-        <div id="treasure-chest" onclick="openChest()" title="神秘寶箱？！">🎁</div>
-        <p class="egg-hint">✦ 據說這座市集裡，還藏著不只一個秘密 ✦</p>
+        <div class="panel-label">隨機探索</div>
+        <p style="font-size:11px;color:var(--dim);margin-bottom:10px;">點一下，隨機認識一個品牌（可重複探索）。</p>
+        <div id="treasure-chest" onclick="openChest()" title="隨機認識一個品牌">🧭</div>
+        <p class="egg-hint">✦ 品牌探索小工具 ✦</p>
       </div>
     </div>
   </div>
@@ -234,7 +251,7 @@ html,body{height:100%;background:linear-gradient(180deg,var(--dusk) 0%,var(--bg)
   <!-- ABOUT SCREEN -->
   <div id="screen-about" class="screen">
     <div class="page-header">
-      <span class="tag" style="background:var(--purple);border-color:#d8b4fe;">品牌檔案</span>
+      <span class="tag" style="background:var(--purple);border-color:#d9bccf;">品牌檔案</span>
       <h1>LiMA 原選</h1>
     </div>
 
@@ -272,36 +289,15 @@ html,body{height:100%;background:linear-gradient(180deg,var(--dusk) 0%,var(--bg)
       <p style="font-size:13px;color:#fff;line-height:2;">讓這份來自土地的心意，輕鬆送達親友手中。</p>
       <div style="display:flex;gap:10px;margin-top:14px;justify-content:center;flex-wrap:wrap;">
         <a class="btn btn-gold" href="https://lima.com.tw" target="_blank" rel="noopener noreferrer">🌐 LiMA 官網</a>
-        <button class="btn btn-jade" onclick="switchScreen('food')">前往 01F ▶</button>
-        <button class="btn btn-jade" onclick="switchScreen('craft')">前往 02F ▶</button>
+        <button class="btn btn-jade" onclick="switchScreen('craft')">🧵 前往文創工藝坊 ▶</button>
       </div>
     </div>
-  </div>
-
-  <!-- FOOD SCREEN -->
-  <div id="screen-food" class="screen">
-    <div class="page-header">
-      <span class="tag" style="background:var(--jade);border-color:#5fd6a8;">01F</span>
-      <h1>農特美食街</h1>
-    </div>
-    <p class="match-count" id="match-count-food"></p>
-    <div class="panel" style="padding:14px;">
-      <div id="patron-grid-food" class="patron-grid"></div>
-      <div class="empty-floor" id="empty-food"><p style="font-size:12px;color:var(--dim);">找不到符合的攤位，換個關鍵字試試！</p></div>
-    </div>
-
-    <div class="dialog-box panel" style="margin-top:16px;">
-      <div class="dialog-speaker" id="dialog-speaker-food">???</div>
-      <div id="dialog-text-food" style="font-size:13px;line-height:2;color:#fff;min-height:60px;cursor:pointer;" onclick="skipTypewriter()">點擊上方任一攤位，開始對話吧！</div>
-      <span class="dialog-cursor" id="cursor-food" style="display:none;"></span>
-    </div>
-    <div id="loot-food" class="loot-grid"></div>
   </div>
 
   <!-- CRAFT SCREEN -->
   <div id="screen-craft" class="screen">
     <div class="page-header">
-      <span class="tag" style="background:var(--purple);border-color:#d8b4fe;">02F</span>
+      <span class="tag" style="background:var(--gold);border-color:#f7cf6a;color:#000;">文創工藝坊</span>
       <h1>文創工藝坊</h1>
     </div>
     <p class="match-count" id="match-count-craft"></p>
@@ -312,13 +308,14 @@ html,body{height:100%;background:linear-gradient(180deg,var(--dusk) 0%,var(--bg)
 
     <div class="dialog-box panel" style="margin-top:16px;">
       <div class="dialog-speaker" id="dialog-speaker-craft">???</div>
-      <div id="dialog-text-craft" style="font-size:13px;line-height:2;color:#fff;min-height:60px;cursor:pointer;" onclick="skipTypewriter()">點擊上方任一攤位，開始對話吧！</div>
+      <div id="dialog-text-craft" style="font-size:13px;line-height:2;color:#fff;min-height:60px;cursor:pointer;" onclick="skipTypewriter()">點擊上方任一攤位，開始你的探索對話！</div>
       <span class="dialog-cursor" id="cursor-craft" style="display:none;"></span>
+      <div id="choices-craft" class="choices"></div>
     </div>
     <div id="loot-craft" class="loot-grid"></div>
   </div>
 
-  <p class="footer-note">LiMA 原選 × TABE 札哈木樂原市集 非官方 RPG 型錄 ・ 內容依品牌提供資料整理製作<br>© 探索紀錄 ・ 感謝冒險至此<br><a href="https://lima.com.tw" target="_blank" rel="noopener noreferrer" style="color:var(--gold);">🌐 lima.com.tw</a></p>
+  <p class="footer-note">LiMA 原選 × TABE 札哈木樂原市集 官方 RPG 型錄 ・ 內容依品牌提供資料整理製作<br>© 探索紀錄 ・ 感謝冒險至此<br><a href="https://lima.com.tw" target="_blank" rel="noopener noreferrer" style="color:var(--gold);">🌐 lima.com.tw</a></p>
 </div>
 
 <script>
@@ -326,67 +323,433 @@ html,body{height:100%;background:linear-gradient(180deg,var(--dusk) 0%,var(--bg)
    DATA
    ================================================================ */
 const FLOOR_BRANDS = {
-food: [
-{name:"紅藜之家", emoji:"🌾",
- intro:["歡迎光臨紅藜之家！我們把台灣原生的『紅藜』種進田裡，也種進零嘴和調味料裡。","從鹹蛋千層棒到馬告胡椒鹽，每一包都想讓你嚐到山裡的顏色。"],
- products:[["紅藜鹹蛋千層棒","—","100"],["紅藜芝麻軟糕","—","100"],["馬告小辣豆干","—","100"],["無籽話梅","—","100"],["無籽酵素梅","—","100"],["焦糖爆薏仁","—","180"],["馬告胡椒鹽","—","150"],["馬告香辣醬","—","190"],["紅藜芝麻千層棒","—","100"],["愛文芒果乾","—","100"],["高山梅花蜜","—","190"]]},
-{name:"燦日大武山", emoji:"☕",
- intro:["我們在大武山的山坡上種咖啡，水洗、日曬、蜜處理，三種手法留住三種風味。","濾掛包方便你隨時來一杯，豆子也整包帶回家慢慢磨。"],
- products:[["燦日大武山濾掛式咖啡10入","水洗 / 日曬 / 蜜處理","450（水洗）500（日曬/蜜處理）"],["燦日大武山咖啡1/2磅豆","水洗 / 日曬 / 蜜處理","900（水洗）1000（日曬/蜜處理）"]]},
-{name:"卡碩美食", emoji:"🍖",
- intro:["卡碩美食專攻一件事：把豬肉乾做到讓人一口接一口。","馬告口味帶點山林清香，蜜汁口味走溫柔路線，配上一罐馬告辣椒，戰力全開。"],
- products:[["勇士豬肉乾","馬告口味 / 蜜汁口味","200"],["馬告辣椒","—","350"]]},
-{name:"卡彿魯岸", emoji:"🚧",
- intro:["卡彿魯岸的攤位才剛掛上布簾，老闆還在整理貨架，準備把第一批戰利品端出來。","特派員不妨先在市集裡逛逛，之後再回來看看有什麼新發現。"],
- products:[]},
-{name:"薩谷德茗茶", emoji:"🍵",
- intro:["薩谷德茗茶把高山茶包裝進了『繪本』裡。","高山茶包與高山紅茶包各自說著自己的故事，泡開的不只是茶湯，還有一段段山上的日常。"],
- products:[["繪本茶系","高山茶包 / 高山紅茶包","450"],["薩谷德高山茶包","—","450"]]},
-{name:"回家種田", emoji:"🍚",
- intro:["『回家種田』是一群決定回到部落種田的人。","國寶米與黑糙米，都是他們用雙腳踩進田裡換來的收成，也是把年輕人留在家鄉的方式。"],
- products:[["國寶米","—","499"],["黑糙米","—","200"]]},
-{name:"舞賽檸檬", emoji:"🍋",
- intro:["舞賽檸檬的果園裡什麼都不浪費：果肉曬成有機檸檬乾。","連果皮的香氣都做成了洗碗精，酸香從餐桌一路用到廚房水槽。"],
- products:[["有機檸檬乾","—","300"],["檸檬慕斯洗碗精","—","170"]]},
-{name:"花蒔間", emoji:"🌸",
- intro:["花蒔間專注在無咖啡因的花草茶：洛神、金菊、紅烏龍、苦瓜。","四種蒔間任你單包挑選，也能整組帶走送禮，一次收藏四種心情。"],
- products:[["花蒔間洛神蒔間","洛神蒔間 / 金菊蒔間 / 紅烏蒔間 / 苦瓜蒔間","350"],["花蒔間洛神蒔間組","—","1500"]]}
-],
 craft: [
-{name:"iNAKATA 走吧!我們", emoji:"🎒",
- intro:["iNAKATA 走吧!我們 用魔鬼氈布章記錄生活裡的各種小情緒。","貓奴抵家、易怒體質、好好呼吸……還有黑熊、穿山甲、飛鼠繡在束口水壺袋上，實用又有態度。"],
- products:[["魔鬼氈毛面證件卡套","橫式","280"],["口袋魔鬼氈鑰匙圈/日出","—","530"],["I'm from TAIWAN SUI零錢包組-卡其","卡其 / 黑色","1460"],["文字鑰匙圈","好了就好了 / 貓奴抵家 / 理性飲酒 / 生人勿進","300"],["mini隨身包 LIMA限定魔鬼氈組","卡其駱色 / 黑色","1100"],["魔鬼氈","食物在哪? / 歡慶","250"],["口袋魔鬼氈鑰匙圈","月光海 / 潮間帶的星星 / 第五道浪 / 山與海 / 離岸流","530"],["文字鑰匙圈","好好說話 / 易怒體質 / 不要問我 / 哈哈哈哈 / 好好呼吸 / 少在那邊 / 有點東西 / 保持風度 / 自己承擔","300"],["魔鬼氈/雨下很大","—","120"],["魔鬼氈","芋頭殺手 / 有點不想走 / 工作不簡單 / 河畔 / 點子","250"],["電繡束口多用途水壺袋","台灣黑熊 / 穿山甲 / 台灣獼猴 / 飛鼠","580"],["好用杯杯袋 LIMA限定魔鬼氈組","—","1380"],["魔鬼氈","迷路人 / 火鍋三溫暖 / 點菸說你好 / 森林 / 放電的孩子 / 太陽 / 幸福小屋 / 移動超市 / 黃金藏起來","150"],["魔鬼氈","飛鼠 / 黑熊 / 山豬 / 臺灣銀 / 臺灣咖 / 臺灣金 / 彩色臺灣 / 方向 / Love the days you live / Live the life you love / 好好呼吸 / 理性飲酒 / 易怒體質","120"],["電繡束口多用途水壺袋","石虎 / 日出 / 月光海 / 愛臺灣-彩色 / 臺灣贏-銀 / 臺灣咖-咖啡","580"],["證件套貼刺繡魔鬼氈-方形","—","480"]]},
-{name:"浪女俱樂部", emoji:"🏄",
- intro:["浪女俱樂部把衝浪魂跟原住民色彩編在一起。","十六族配色的手環腳環、美人魚尾與鯨魚尾項鏈，還有相機造型零錢包，每一件都帶點海的氣味。"],
- products:[["手工編織衝浪手環","阿美族 / 排灣族 / 泰雅族 / 布農族 / 卑南族 / 魯凱族 / 鄒族 / 達悟族 / 邵族 / 噶瑪蘭族 / 太魯閣族 / 撒奇萊雅族 / 賽德克族 / 拉阿魯哇族 / 卡那卡那富族 / 賽夏族","NT$220"],["手工編織衝浪腳環","純黑(男) / 漸層藍(男) / 咖啡黃白(男) / 彩虹(男) / 黑邊彩虹(男) / 純黑(女) / 純白(女) / 漸層粉(女) / 藍白紅(女) / 黑邊彩虹(女)","NT$280"],["手工打磨項鏈","美人魚尾 / 鯨魚尾 / 美人魚尾（木） / 鯨魚尾（木）","NT$490"],["相機風格零錢包","紫色 / 淺紫 / 黑 / 灰 / 黃","NT$490"],["手工縫製皮革系列","燈籠魚 / 飛龍 / 魟魚 / 暴龍 / 鯊魚 / 馬上有錢 / 烏龜 / 大翅鯨 / 海豚 / 海馬 / 藍鯨","NT$390"],["手工縫製皮革系列","貓頭鷹 / 海星","NT$300"],["小圓筒手工縫製皮革零錢包","—","NT$390"]]},
-{name:"心象工作室", emoji:"🦉",
- intro:["心象工作室用紙藝與編織記住十六族的樣子。","單族摺紙、編織書籤，還有貓頭鷹掛飾、小米串吊飾等手作教材，最後集結成一本十六族摺紙書。"],
- products:[["創意紙藝（單族摺紙）","阿美族 / 泰雅族 / 排灣族 / 布農族 / 卑南族 / 魯凱族 / 鄒族 / 賽夏族 / 達悟族 / 邵族 / 噶瑪蘭族 / 太魯閣族 / 撒奇萊雅族 / 賽德克族 / 拉阿魯哇族 / 卡那卡那富族","NT$60"],["編織書籤","阿美族 / 泰雅族 / 排灣族 / 布農族 / 卑南族 / 魯凱族 / 鄒族 / 賽夏族 / 達悟族 / 邵族 / 噶瑪蘭族 / 太魯閣族 / 撒奇萊雅族 / 賽德克族 / 拉阿魯哇族 / 卡那卡那富族","NT$100"],["貓頭鷹編織掛飾-手作教材","—","NT$240"],["祝福與豐收的小米串吊飾-手作教材","—","NT$300"],["臺灣原住民創意紙藝-十六族摺紙書","—","NT$500"]]},
-{name:"WADIYAN 瓦力原創設計工作室", emoji:"🧣",
- intro:["WADIYAN 瓦力原創設計工作室把祖靈的眼睛、太平洋的風、森林的智慧畫進手拭巾。","每條巾子與帽款都在說一個關於山海的故事。"],
- products:[["多用途手拭巾－太平洋的風","粉 / 綠 / 黃 / 白 / 藍","NT$490"],["多用途手拭巾－森林的智慧","粉 / 綠 / 黃 / 白 / 藍","NT$490"],["多用途手拭巾－祖靈的眼睛 №2","粉 / 綠 / 黃 / 白 / 藍","NT$490"],["多用途手拭巾－走山的人","粉 / 綠 / 黃 / 白 / 藍","NT$490"],["多用途手拭巾－凝聚的力量 №2","粉 / 綠 / 黃 / 白 / 藍","NT$490"],["多用途手拭巾－花環共織","粉 / 綠 / 橘 / 白 / 藍","NT$490"],["奔尼帽","花環 / 團結在一起","NT$890"],["抽繩棒球帽","團結在一起 / 花環","NT$890"]]},
-{name:"賽夏獵人合作社", emoji:"🏹",
- intro:["賽夏獵人合作社把上山打獵的裝備變成日常用品。","手腕袋、獵人徽章、雷女紋毛巾，還有山豬、黑熊、飛鼠、石虎的刺繡布貼，每一件都藏著獵人的紋理。"],
- products:[["獵人散步手腕袋","逐獵奔馳款 / 山豬投降款","450"],["賽夏圖騰證件卡套","A款 / B款","NT$150"],["獵人認證金屬徽章","獵刀款 / 弓箭款","NT$250"],["獵人專屬摺疊便攜杯套","圖騰紋理款 / 刀光剪影款","NT$250"],["賽夏雷女紋加油毛巾","基本款 / SaySiyat款 / kilwa'is款","NT$250"],["賽夏生活系列帆布包","黑 / 白","NT$550"],["上山打獵系列刺繡布貼（大）","山豬-大 / 黑熊-大 / 飛鼠-大 / 石虎-大","NT$180"],["上山打獵系列刺繡布貼（小）","山豬-小 / 黑熊-小 / 飛鼠-小","NT$150"],["雷女紋圖騰扣環織帶","—","NT$150"],["賽夏圖紋風格紙膠帶","—","NT$180"],["酒鬼香蕉酒壺","—","NT$450"],["賽夏雷女紋電繡棒球網帽","—","NT$490"],["賽夏生活剪影玻璃杯","—","NT$500"]]},
-{name:"Nay奈工藝坊", emoji:"👜",
- intro:["Nay奈工藝坊把台灣圖騰縫進日常包款。","肩背包、提袋、零錢包一應俱全，復古拉鍊圖騰包與招牌奈托特包，是每天出門都能帶上的小小圖騰。"],
- products:[["台灣圖騰系列-肩背包","—","800"],["台灣圖騰系列-提袋","—","350"],["台灣圖騰系列-零錢包","—","250"],["復古圖騰包(拉鍊款)","—","350"],["奈托特包","—","900"]]},
-{name:"鹿樣風", emoji:"🐍",
- intro:["鹿樣風把排灣族與卑南族的圖騰刻進石板杯墊與小勇士刀。","百步蛇守護神、祖靈像、孕蘊紋樣，一杯一刀之間都是族群故事的縮影。"],
- products:[["圖騰石板杯墊-結盟","—","250"],["彩繪小勇士刀","排灣族(百步蛇) / 排灣族(人像) / 排灣族(陶壺) / 卑南族(花草紋)","250"],["圖騰石板杯墊","守護神-百步蛇 / 祖靈像（男）/ 祖靈像（女）/ 孕蘊 / 族人與百步蛇","250"]]},
-{name:"阿魯巴染", emoji:"🎨",
- intro:["阿魯巴染部落手作室以植物染色為底，把大地的顏色染進提包、杯套、筆記本與筆袋。","每一件成品的暈染紋路都獨一無二，絕不重複。"],
- products:[["都市時尚包","—","1280"],["植染杯套","—","220"],["喵星人鑰匙套","—","360"],["植染筆記本","—","500"],["柿筆帶","—","600"],["植染拼色筆帶","—","600"]]},
-{name:"阿加吉比", emoji:"🧦",
- intro:["qatjatjipi阿加吉比工作室是一間專注植物染的小工坊。","招牌是植物染棉襪——用山裡的植物萃取出溫潤的天然色調，穿在腳上也踏實。"],
- products:[["植物染棉襪","—","320"]]}
+ {
+  "name": "iNAKATA 走吧!我們",
+  "emoji": "🎒",
+  "intro": [
+   "嗨！我們是iNAKATA，以小寫i起頭，如同小小我們，期與更多內容創作一起向前，",
+   "『貓奴抵家』『理性飲酒』『好好呼吸』，還有黑熊、穿山甲、飛鼠繡上束口水壺袋，實用又有態度。"
+  ],
+  "lore": "iNAKATA 在布農族語裡有『走吧，我們一起』的意思——用當代潮流設計說原鄉的故事，就是我們背起包出發的理由。",
+  "products": [
+   [
+    "魔鬼氈毛面證件卡套",
+    "橫式",
+    "280"
+   ],
+   [
+    "口袋魔鬼氈鑰匙圈/日出",
+    "—",
+    "530"
+   ],
+   [
+    "I'm from TAIWAN SUI零錢包組-卡其",
+    "卡其 / 黑色",
+    "1460"
+   ],
+   [
+    "文字鑰匙圈",
+    "好了就好了 / 貓奴抵家 / 理性飲酒 / 生人勿進",
+    "300"
+   ],
+   [
+    "mini隨身包 LIMA限定魔鬼氈組",
+    "卡其駱色 / 黑色",
+    "1100"
+   ],
+   [
+    "魔鬼氈",
+    "食物在哪? / 歡慶",
+    "250"
+   ],
+   [
+    "口袋魔鬼氈鑰匙圈",
+    "月光海 / 潮間帶的星星 / 第五道浪 / 山與海 / 離岸流",
+    "530"
+   ],
+   [
+    "文字鑰匙圈",
+    "好好說話 / 易怒體質 / 不要問我 / 哈哈哈哈 / 好好呼吸 / 少在那邊 / 有點東西 / 保持風度 / 自己承擔",
+    "300"
+   ],
+   [
+    "魔鬼氈/雨下很大",
+    "—",
+    "120"
+   ],
+   [
+    "魔鬼氈",
+    "芋頭殺手 / 有點不想走 / 工作不簡單 / 河畔 / 點子",
+    "250"
+   ],
+   [
+    "電繡束口多用途水壺袋",
+    "台灣黑熊 / 穿山甲 / 台灣獼猴 / 飛鼠",
+    "580"
+   ],
+   [
+    "好用杯杯袋 LIMA限定魔鬼氈組",
+    "—",
+    "1380"
+   ],
+   [
+    "魔鬼氈",
+    "迷路人 / 火鍋三溫暖 / 點菸說你好 / 森林 / 放電的孩子 / 太陽 / 幸福小屋 / 移動超市 / 黃金藏起來",
+    "150"
+   ],
+   [
+    "魔鬼氈",
+    "飛鼠 / 黑熊 / 山豬 / 臺灣銀 / 臺灣咖 / 臺灣金 / 彩色臺灣 / 方向 / Love the days you live / Live the life you love / 好好呼吸 / 理性飲酒 / 易怒體質",
+    "120"
+   ],
+   [
+    "電繡束口多用途水壺袋",
+    "石虎 / 日出 / 月光海 / 愛臺灣-彩色 / 臺灣贏-銀 / 臺灣咖-咖啡",
+    "580"
+   ],
+   [
+    "證件套貼刺繡魔鬼氈-方形",
+    "—",
+    "480"
+   ]
+  ]
+ },
+ {
+  "name": "浪女俱樂部",
+  "emoji": "🏄",
+  "intro": [
+   "浪來了就上！浪女俱樂部專注於製作手工編織的衝浪手環，這些手環都是純手工製作而成的，並使用許多皮雕或銀飾裝飾。",
+   "美人魚尾、鯨魚尾項鏈，還有一整排手縫皮革海洋生物與相機造型零錢包，每件都聞得到海風。"
+  ],
+  "lore": "這位主角將他對衝浪和編織的熱愛融入到每條手編手環中，每一條手環都承載著他對大海和手工藝的獨特情感和堅持。",
+  "products": [
+   [
+    "手工編織衝浪手環",
+    "阿美族 / 排灣族 / 泰雅族 / 布農族 / 卑南族 / 魯凱族 / 鄒族 / 達悟族 / 邵族 / 噶瑪蘭族 / 太魯閣族 / 撒奇萊雅族 / 賽德克族 / 拉阿魯哇族 / 卡那卡那富族 / 賽夏族",
+    "NT$220"
+   ],
+   [
+    "手工編織衝浪腳環",
+    "純黑(男) / 漸層藍(男) / 咖啡黃白(男) / 彩虹(男) / 黑邊彩虹(男) / 純黑(女) / 純白(女) / 漸層粉(女) / 藍白紅(女) / 黑邊彩虹(女)",
+    "NT$280"
+   ],
+   [
+    "手工打磨項鏈",
+    "美人魚尾 / 鯨魚尾 / 美人魚尾（木） / 鯨魚尾（木）",
+    "NT$490"
+   ],
+   [
+    "相機風格零錢包",
+    "紫色 / 淺紫 / 黑 / 灰 / 黃",
+    "NT$490"
+   ],
+   [
+    "手工縫製皮革系列",
+    "燈籠魚 / 飛龍 / 魟魚 / 暴龍 / 鯊魚 / 馬上有錢 / 烏龜 / 大翅鯨 / 海豚 / 海馬 / 藍鯨",
+    "NT$390"
+   ],
+   [
+    "手工縫製皮革系列",
+    "貓頭鷹 / 海星",
+    "NT$300"
+   ],
+   [
+    "小圓筒手工縫製皮革零錢包",
+    "—",
+    "NT$390"
+   ]
+  ]
+ },
+ {
+  "name": "心象工作室",
+  "emoji": "🦉",
+  "intro": [
+   "為「善」理念而作 Creating for “Well-being”部落原住民合作生產計畫。",
+   "單族摺紙、編織書籤，還有貓頭鷹掛飾、小米串吊飾等手作教材，適合大小朋友一起動手。"
+  ],
+  "lore": "培育原住民紙藝加工，讓他們增加拓展新的人脈與市場競爭力，他們也從手作中也喜悅著遞著自己家鄉的文化。",
+  "products": [
+   [
+    "創意紙藝（單族摺紙）",
+    "阿美族 / 泰雅族 / 排灣族 / 布農族 / 卑南族 / 魯凱族 / 鄒族 / 賽夏族 / 達悟族 / 邵族 / 噶瑪蘭族 / 太魯閣族 / 撒奇萊雅族 / 賽德克族 / 拉阿魯哇族 / 卡那卡那富族",
+    "NT$60"
+   ],
+   [
+    "編織書籤",
+    "阿美族 / 泰雅族 / 排灣族 / 布農族 / 卑南族 / 魯凱族 / 鄒族 / 賽夏族 / 達悟族 / 邵族 / 噶瑪蘭族 / 太魯閣族 / 撒奇萊雅族 / 賽德克族 / 拉阿魯哇族 / 卡那卡那富族",
+    "NT$100"
+   ],
+   [
+    "貓頭鷹編織掛飾-手作教材",
+    "—",
+    "NT$240"
+   ],
+   [
+    "祝福與豐收的小米串吊飾-手作教材",
+    "—",
+    "NT$300"
+   ],
+   [
+    "臺灣原住民創意紙藝-十六族摺紙書",
+    "—",
+    "NT$500"
+   ]
+  ]
+ },
+ {
+  "name": "WADIYAN 瓦力原創設計工作室",
+  "emoji": "🧣",
+  "intro": [
+   "WADIYAN，卑南族語，親朋好友兄弟姐妹之意。",
+   "祖靈的眼睛、走山的人、凝聚的力量、花環共織……多色任你挑，還有奔尼帽與抽繩棒球帽。"
+  ],
+  "lore": "從日常生活便可發現祖先在這塊土地留下的美好驚喜，展現了原住民族獨有的生活美學。",
+  "products": [
+   [
+    "多用途手拭巾－太平洋的風",
+    "粉 / 綠 / 黃 / 白 / 藍",
+    "NT$490"
+   ],
+   [
+    "多用途手拭巾－森林的智慧",
+    "粉 / 綠 / 黃 / 白 / 藍",
+    "NT$490"
+   ],
+   [
+    "多用途手拭巾－祖靈的眼睛 №2",
+    "粉 / 綠 / 黃 / 白 / 藍",
+    "NT$490"
+   ],
+   [
+    "多用途手拭巾－走山的人",
+    "粉 / 綠 / 黃 / 白 / 藍",
+    "NT$490"
+   ],
+   [
+    "多用途手拭巾－凝聚的力量 №2",
+    "粉 / 綠 / 黃 / 白 / 藍",
+    "NT$490"
+   ],
+   [
+    "多用途手拭巾－花環共織",
+    "粉 / 綠 / 橘 / 白 / 藍",
+    "NT$490"
+   ],
+   [
+    "奔尼帽",
+    "花環 / 團結在一起",
+    "NT$890"
+   ],
+   [
+    "抽繩棒球帽",
+    "團結在一起 / 花環",
+    "NT$890"
+   ]
+  ]
+ },
+ {
+  "name": "賽夏獵人合作社",
+  "emoji": "🏹",
+  "intro": [
+   "紙筆為槍砲，創意是獵場，以漁獵之名，踐行文創之實。",
+   "雷女紋毛巾、獵人手腕袋、金屬徽章，還有山豬、黑熊、飛鼠、石虎的刺繡布貼任你收集。"
+  ],
+  "lore": "擁抱傳統的同時，也要大膽的走進新潮。",
+  "products": [
+   [
+    "獵人散步手腕袋",
+    "逐獵奔馳款 / 山豬投降款",
+    "450"
+   ],
+   [
+    "賽夏圖騰證件卡套",
+    "A款 / B款",
+    "NT$150"
+   ],
+   [
+    "獵人認證金屬徽章",
+    "獵刀款 / 弓箭款",
+    "NT$250"
+   ],
+   [
+    "獵人專屬摺疊便攜杯套",
+    "圖騰紋理款 / 刀光剪影款",
+    "NT$250"
+   ],
+   [
+    "賽夏雷女紋加油毛巾",
+    "基本款 / SaySiyat款 / kilwa'is款",
+    "NT$250"
+   ],
+   [
+    "賽夏生活系列帆布包",
+    "黑 / 白",
+    "NT$550"
+   ],
+   [
+    "上山打獵系列刺繡布貼（大）",
+    "山豬-大 / 黑熊-大 / 飛鼠-大 / 石虎-大",
+    "NT$180"
+   ],
+   [
+    "上山打獵系列刺繡布貼（小）",
+    "山豬-小 / 黑熊-小 / 飛鼠-小",
+    "NT$150"
+   ],
+   [
+    "雷女紋圖騰扣環織帶",
+    "—",
+    "NT$150"
+   ],
+   [
+    "賽夏圖紋風格紙膠帶",
+    "—",
+    "NT$180"
+   ],
+   [
+    "酒鬼香蕉酒壺",
+    "—",
+    "NT$450"
+   ],
+   [
+    "賽夏雷女紋電繡棒球網帽",
+    "—",
+    "NT$490"
+   ],
+   [
+    "賽夏生活剪影玻璃杯",
+    "—",
+    "NT$500"
+   ]
+  ]
+ },
+ {
+  "name": "Nay奈工藝坊",
+  "emoji": "👜",
+  "intro": [
+   "NAY讀作【奈】，是西拉雅族語大地的意思",
+   "肩背包、提袋、零錢包一應俱全，還有復古拉鍊圖騰包與招牌奈托特包，多色任你搭配。"
+  ],
+  "lore": "我們與大地共生共存，運用大地給的恩典， 創造出許多有情感、有溫度的美麗藝品。",
+  "products": [
+   [
+    "台灣圖騰系列-肩背包",
+    "—",
+    "800"
+   ],
+   [
+    "台灣圖騰系列-提袋",
+    "—",
+    "350"
+   ],
+   [
+    "台灣圖騰系列-零錢包",
+    "—",
+    "250"
+   ],
+   [
+    "復古圖騰包(拉鍊款)",
+    "—",
+    "350"
+   ],
+   [
+    "奈托特包",
+    "—",
+    "900"
+   ]
+  ]
+ },
+ {
+  "name": "鹿樣風",
+  "emoji": "🐍",
+  "intro": [
+   "本身排灣族血統及父親卑南族刀藝師傳承，多年來在傳統工藝方面不斷地精益求精，尋求自我突破及技藝方面的創新。",
+   "百步蛇守護神、祖靈像、孕蘊紋樣，一杯墊一刀之間，都是族群故事的縮影。"
+  ],
+  "lore": "取自部落的山，百步蛇是排灣族的守護者——把它放上桌，就像請一位祖靈，守著你的每一杯茶。",
+  "products": [
+   [
+    "圖騰石板杯墊-結盟",
+    "—",
+    "250"
+   ],
+   [
+    "彩繪小勇士刀",
+    "排灣族(百步蛇) / 排灣族(人像) / 排灣族(陶壺) / 卑南族(花草紋)",
+    "250"
+   ],
+   [
+    "圖騰石板杯墊",
+    "守護神-百步蛇 / 祖靈像（男）/ 祖靈像（女）/ 孕蘊 / 族人與百步蛇",
+    "250"
+   ]
+  ]
+ },
+ {
+  "name": "阿魯巴染",
+  "emoji": "🎨",
+  "intro": [
+   "阿魯巴染部落手作室，用山裡的植物，把大地的顏色染上布。",
+   "都市時尚包、植染杯套、喵星人鑰匙套、筆記本與筆袋，每一件的暈染紋路都獨一無二。"
+  ],
+  "lore": "植物染看天吃飯——同一鍋染液，不同的日照與溫度就會長出不同的顏色，所以你手上這件，全世界只有一件。",
+  "products": [
+   [
+    "都市時尚包",
+    "—",
+    "1280"
+   ],
+   [
+    "植染杯套",
+    "—",
+    "220"
+   ],
+   [
+    "喵星人鑰匙套",
+    "—",
+    "360"
+   ],
+   [
+    "植染筆記本",
+    "—",
+    "500"
+   ],
+   [
+    "柿筆帶",
+    "—",
+    "600"
+   ],
+   [
+    "植染拼色筆帶",
+    "—",
+    "600"
+   ]
+  ]
+ },
+ {
+  "name": "阿加吉比",
+  "emoji": "🧦",
+  "intro": [
+   "qatjatjipi 阿加吉比，是一間專注植物染的小工坊。",
+   "招牌是植物染棉襪——用山裡的植物萃取溫潤的天然色調，一針一線，踩在腳下也踏實。"
+  ],
+  "lore": "qatjatjipi 是族語的工作室名。把最日常的一雙襪子，用最費工的植物染慢慢完成，是我們對『日常』的浪漫堅持。",
+  "products": [
+   [
+    "植物染棉襪",
+    "—",
+    "320"
+   ]
+  ]
+ }
 ]
 };
 
 const HOME_LINES = [
- "特派員，歡迎降落 TABE 札哈木樂原。這次 LiMA 原選 帶著十七組原住民品牌進駐這座市集。",
- "從一樓的農特美食街，開到二樓的文創工藝坊——你的任務是拜訪每一位攤主，聽聽他們怎麼介紹自己，再把架上的寶物一件一件記錄下來。",
- "點擊上方分頁前往樓層，點擊攤位開始對話。市集裡似乎還藏著一個神秘寶箱……準備好了嗎？"
+ "特派員，歡迎降落 TABE 札哈木樂原。這一區是 LiMA 原選 精選的『文創工藝坊』，聚集了九組原住民族的原創職人。",
+ "你的任務：拜訪每一位攤主，聽他們親口介紹手藝，遇到有故事的攤位別急著走——多問一句『這門工藝的故事』，往往能聽到最珍貴的故事與傳說。",
+ "點擊上方『🧵 工藝坊』前往攤位區，點攤位開始對話。大廳裡還有『隨機探索』，可以隨機認識一個品牌，市集深處也藏著一則彩蛋……準備好了嗎？"
 ];
 
 /* ================================================================
@@ -427,34 +790,34 @@ document.addEventListener('click', () => Audio8.init(), {once:true});
   let frame=0;
 
   function drawTitle(){
-    ctx.fillStyle='#000814'; ctx.fillRect(0,0,W,H);
+    ctx.fillStyle='#1a0f06'; ctx.fillRect(0,0,W,H);
     stars.forEach(s=>{
       s.b+=0.02; const a=(Math.sin(s.b)*0.4+0.6);
       ctx.fillStyle=`rgba(255,255,255,${a})`;
       ctx.fillRect(Math.floor(s.x),Math.floor(s.y),Math.ceil(s.s),Math.ceil(s.s));
     });
     // mountains silhouette
-    ctx.fillStyle='#0d1a26';
+    ctx.fillStyle='#241811';
     ctx.beginPath(); ctx.moveTo(0,H);
     ctx.lineTo(24,100); ctx.lineTo(55,120); ctx.lineTo(90,80); ctx.lineTo(130,110);
     ctx.lineTo(165,70); ctx.lineTo(205,105); ctx.lineTo(245,65); ctx.lineTo(285,90);
     ctx.lineTo(320,75); ctx.lineTo(320,H); ctx.closePath(); ctx.fill();
     // market stalls (pixel roofs) instead of castle
     frame++;
-    ctx.fillStyle='#1c2e22';
+    ctx.fillStyle='#2e2012';
     for(let i=0;i<3;i++){
       const bx=70+i*70, by=125;
       ctx.fillRect(bx,by,44,34);
-      ctx.fillStyle='#c8402a';
+      ctx.fillStyle='#b5502a';
       ctx.beginPath(); ctx.moveTo(bx-6,by); ctx.lineTo(bx+22,by-16); ctx.lineTo(bx+50,by); ctx.closePath(); ctx.fill();
       const glow=Math.sin(frame*0.05+i)*0.3+0.7;
       ctx.fillStyle=`rgba(234,162,19,${glow})`;
       ctx.fillRect(bx+6,by+10,8,8); ctx.fillRect(bx+30,by+10,8,8);
-      ctx.fillStyle='#1c2e22';
+      ctx.fillStyle='#2e2012';
     }
     // moon
-    ctx.fillStyle='#fffde7'; ctx.beginPath(); ctx.arc(W-40,32,14,0,Math.PI*2); ctx.fill();
-    ctx.fillStyle='#000814'; ctx.beginPath(); ctx.arc(W-36,29,12,0,Math.PI*2); ctx.fill();
+    ctx.fillStyle='#f3e6c8'; ctx.beginPath(); ctx.arc(W-40,32,14,0,Math.PI*2); ctx.fill();
+    ctx.fillStyle='#1a0f06'; ctx.beginPath(); ctx.arc(W-36,29,12,0,Math.PI*2); ctx.fill();
     requestAnimationFrame(drawTitle);
   }
   requestAnimationFrame(drawTitle);
@@ -479,7 +842,7 @@ function switchScreen(name){
   const overlay=document.getElementById('transition-overlay');
   const bar=document.getElementById('transition-bar');
   const txt=document.getElementById('transition-text');
-  const labels={home:'返回市集大廳...', about:'翻開 LiMA 品牌故事...', food:'前往 01F 美食街...', craft:'前往 02F 工藝坊...'};
+  const labels={home:'返回市集大廳...', about:'翻開 LiMA 品牌故事...', craft:'走進文創工藝坊...'};
   txt.textContent=labels[name]||'LOADING...';
   overlay.classList.add('active'); bar.style.width='0%';
   setTimeout(()=>{ bar.style.width='85%'; },50);
@@ -533,6 +896,11 @@ let chestPokes = 0;
 let logoTaps = 0, logoTapTimer = null;
 const typeState = {}; // per floor: {timeout, typing, lines, idx}
 
+const patronEls = {craft:[]};
+const storiesHeard = new Set();
+let activePatron = null;
+let floorClearShown = false;
+
 function buildPatronGrid(floor){
   const grid=document.getElementById('patron-grid-'+floor);
   FLOOR_BRANDS[floor].forEach((brand, i)=>{
@@ -542,15 +910,18 @@ function buildPatronGrid(floor){
     el.innerHTML=`<div class="emoji">${brand.emoji}</div><div class="name-tag">${brand.name}</div>`;
     el.addEventListener('click', ()=> selectPatron(floor, i, el));
     grid.appendChild(el);
+    patronEls[floor][i]=el;
   });
 }
-buildPatronGrid('food');
 buildPatronGrid('craft');
+
+function hideChoices(floor){ const c=document.getElementById('choices-'+floor); c.classList.remove('show'); c.innerHTML=''; }
 
 function selectPatron(floor, idx, el){
   Audio8.select();
   document.querySelectorAll('#patron-grid-'+floor+' .patron').forEach(p=>p.classList.remove('is-active'));
   el.classList.add('is-active');
+  activePatron = el;
 
   const brand=FLOOR_BRANDS[floor][idx];
   const speakerEl=document.getElementById('dialog-speaker-'+floor);
@@ -558,6 +929,7 @@ function selectPatron(floor, idx, el){
   const cursorEl=document.getElementById('cursor-'+floor);
   const lootEl=document.getElementById('loot-'+floor);
   lootEl.innerHTML='';
+  hideChoices(floor);
   speakerEl.textContent=brand.name;
   cursorEl.style.display='inline-block';
 
@@ -565,6 +937,7 @@ function selectPatron(floor, idx, el){
   typeState[floor]={lines:brand.intro, idx:0, typing:true, timeout:null};
 
   visitedBrands.add(floor+'|'+brand.name);
+  el.classList.add('explored');
   updateHud();
 
   function showLine(lineIdx){
@@ -572,10 +945,12 @@ function selectPatron(floor, idx, el){
     if(lineIdx>=brand.intro.length){
       cursorEl.style.display='none';
       typeState[floor].typing=false;
-      revealLoot(floor, brand);
+      textEl.onclick=null;
+      showChoices(floor, brand);   // 冒險互動：介紹結束後給玩家選擇
       return;
     }
     const line=brand.intro[lineIdx];
+    textEl.classList.remove('lore-line');
     textEl.textContent=''; let ci=0; typeState[floor].typing=true;
     function type(){
       if(ci<line.length){
@@ -592,13 +967,69 @@ function selectPatron(floor, idx, el){
   showLine(0);
 }
 
+/* ---- 對話選擇：聽故事 / 看商品 ---- */
+function showChoices(floor, brand){
+  const box=document.getElementById('choices-'+floor);
+  const heard=storiesHeard.has(brand.name);
+  box.innerHTML='';
+  const bStory=document.createElement('button');
+  bStory.className='choice-btn';
+  if(heard){ bStory.disabled=true; bStory.textContent='📜 這門工藝的故事，你已經聽過了'; }
+  else{ bStory.textContent='📜 問問這門工藝背後的故事'; bStory.onclick=()=>chooseStory(floor,brand); }
+  box.appendChild(bStory);
+
+  const bLoot=document.createElement('button');
+  bLoot.className='choice-btn';
+  const n=brand.products.length;
+  bLoot.textContent='🔍 看看這家的商品'+(n?'（'+n+' 件）':'（整理中）');
+  bLoot.onclick=()=>chooseLoot(floor,brand,bLoot);
+  box.appendChild(bLoot);
+
+  box.classList.add('show');
+}
+
+function chooseStory(floor, brand){
+  Audio8.confirm();
+  const textEl=document.getElementById('dialog-text-'+floor);
+  const cursorEl=document.getElementById('cursor-'+floor);
+  hideChoices(floor);
+  cursorEl.style.display='inline-block';
+  textEl.onclick=null;
+  textEl.classList.add('lore-line');
+  const line=brand.lore; textEl.textContent=''; let ci=0;
+  if(typeState[floor]) clearTimeout(typeState[floor].timeout);
+  (function type(){
+    if(ci<line.length){ textEl.textContent+=line[ci]; Audio8.typed(); ci++; typeState[floor].timeout=setTimeout(type,26); }
+    else{
+      cursorEl.style.display='none';
+      if(!storiesHeard.has(brand.name)){
+        storiesHeard.add(brand.name);
+        if(activePatron) activePatron.classList.add('storied');
+        spawnFloat('📜 職人故事 +1','#8f9d55');
+      }
+      updateHud();
+      showChoices(floor, brand);   // 回到選單（故事選項已完成）
+    }
+  })();
+}
+
+function chooseLoot(floor, brand, btn){
+  Audio8.select();
+  if(btn){ btn.disabled=true; }
+  revealLoot(floor, brand);
+  if(activePatron) activePatron.classList.add('explored');
+  spawnFloat('📖 已展開商品介紹','#eaa213');
+  // 卷動到商品介紹
+  setTimeout(()=>{ document.getElementById('loot-'+floor).scrollIntoView({behavior:'smooth',block:'nearest'}); },80);
+}
+
 function revealLoot(floor, brand){
   const lootEl=document.getElementById('loot-'+floor);
   lootEl.innerHTML='';
   if(!brand.products.length){
     const card=document.createElement('div');
     card.className='item-card';
-    card.innerHTML=`<div class="tag" style="color:var(--red);">COMING SOON</div><p style="font-size:12px;color:var(--dim);margin-top:8px;">戰利品清單整理中，敬請期待。</p>`;
+    card.innerHTML=`<div class="tag" style="color:var(--red);">COMING SOON</div><p style="font-size:12px;color:var(--dim);margin-top:8px;">商品清單整理中，敬請期待。</p>`;
     lootEl.appendChild(card);
     return;
   }
@@ -624,7 +1055,7 @@ let keyword='';
 function onSearch(val){
   keyword=val.trim().toLowerCase();
   checkSearchEgg(keyword);
-  ['food','craft'].forEach(floor=>{
+  ['craft'].forEach(floor=>{
     let visible=0;
     document.querySelectorAll('#patron-grid-'+floor+' .patron').forEach(el=>{
       const match=!keyword || el.dataset.search.includes(keyword);
@@ -640,20 +1071,22 @@ function onSearch(val){
    HUD + QUEST OBJECTIVES
    ================================================================ */
 function updateHud(){
-  const foodVisited = [...visitedBrands].filter(k=>k.startsWith('food|')).length;
   const craftVisited = [...visitedBrands].filter(k=>k.startsWith('craft|')).length;
-  document.getElementById('hud-explored').textContent = foodVisited+craftVisited;
-  document.getElementById('obj-food-count').textContent = foodVisited;
+  const stories = storiesHeard.size;
+  document.getElementById('hud-explored').textContent = craftVisited;
   document.getElementById('obj-craft-count').textContent = craftVisited;
+  document.getElementById('obj-story-count').textContent = Math.min(stories,3);
 
-  const foodObj=document.getElementById('objective-food');
-  const craftObj=document.getElementById('objective-craft');
-  toggleObjective(foodObj, foodVisited>=8);
-  toggleObjective(craftObj, craftVisited>=9);
+  toggleObjective(document.getElementById('objective-craft'), craftVisited>=9);
+  toggleObjective(document.getElementById('objective-story'), stories>=3);
 
-  if(foodVisited>=8 && craftVisited>=9 && chestOpened && !allCompleteShown){
+  if(craftVisited>=9 && !floorClearShown){
+    floorClearShown=true;
+    setTimeout(()=>spawnFloat('🧵 工藝坊全數探索完成！','#8f9d55'), 400);
+  }
+  if(craftVisited>=9 && stories>=3 && chestOpened && !allCompleteShown){
     allCompleteShown=true;
-    setTimeout(showAllCompleteEgg, 500);
+    setTimeout(showAllCompleteEgg, 600);
   }
 }
 
@@ -696,7 +1129,7 @@ function triggerKonamiEgg(){
   document.body.style.animation='konami-flash .6s';
   setTimeout(()=>{ document.body.style.animation=''; }, 600);
   showSecretModal('隱藏成就解鎖！', '你輸入了傳說中的密技……看來你也是懷舊玩家！這裡沒有真的隱藏折扣，但送你一枚像素勳章，紀念你的老派堅持。', '🏅 隱藏勳章 ×1（收藏限定，恕不能兌換商品）', true);
-  spawnFloat('🕹️ KONAMI CODE!', '#a855c7');
+  spawnFloat('🕹️ KONAMI CODE!', '#9a6a86');
 }
 
 /* --- Tap the logo 5 times: hidden traveler --- */
@@ -713,8 +1146,8 @@ function tapLogo(){
 function triggerNpcEgg(){
   markEasterFound();
   Audio8.get();
-  showSecretModal('神秘旅人出現！', '噓——你發現我了。我是市集深處的旅人，只有連續敲擊招牌五次的人才看得到我。祝你這趟像素冒險順利，願你帶回滿滿的故事與戰利品。', '👻 隱藏NPC ×1（已收錄進圖鑑）');
-  spawnFloat('👻 ???', '#94a3b8');
+  showSecretModal('神秘旅人出現！', '噓——你發現我了。我是市集深處的旅人，只有連續敲擊招牌五次的人才看得到我。祝你這趟冒險順利，願你帶回滿滿的故事與靈感。', '👻 隱藏NPC ×1（已收錄進圖鑑）');
+  spawnFloat('👻 ???', '#b39a7d');
 }
 
 /* --- Search "彩蛋" keyword --- */
@@ -722,23 +1155,23 @@ function checkSearchEgg(keyword){
   if(easterFound || !keyword) return;
   if(keyword.includes('彩蛋') || keyword==='egg'){
     markEasterFound();
-    showSecretModal('隱藏訊息', '你在搜尋欄打出了「彩蛋」——就像現實中的市集，總要細心找找才會發現驚喜。這裡藏著十七個關於土地與手作的故事，等你一一發掘。', '🥚 隱藏訊息 已解鎖');
+    showSecretModal('隱藏訊息', '你在搜尋欄打出了「彩蛋」——就像現實中的市集，總要細心找找才會發現驚喜。這裡藏著九位職人關於土地與手作的故事，等你一一發掘。', '🥚 隱藏訊息 已解鎖');
     spawnFloat('🥚 找到彩蛋！', '#eaa213');
   }
 }
 
-/* --- Poke the empty chest 5 times --- */
+/* --- 連續點擊隨機探索多次的隱藏成就 --- */
 function triggerChestPokeEgg(){
   markEasterFound();
   Audio8.chest();
-  showSecretModal('市集偵探認證！', '寶箱真的空了啦（笑）。不過謝謝你這麼有好奇心，這份鍥而不捨的精神，送你一個隱藏稱號。', '🕵️ 隱藏稱號：市集偵探');
-  spawnFloat('🕵️ 市集偵探！', '#d8432b');
+  showSecretModal('市集偵探認證！', '這個「隨機探索」只是幫你認識品牌的小工具，不是抽獎、也不會送出商品啦（笑）。不過謝謝你這麼有好奇心，這份鍥而不捨的精神，送你一個隱藏稱號。', '🕵️ 隱藏稱號：逛不累的旅人');
+  spawnFloat('🕵️ 逛不累的旅人！', '#b8532b');
 }
 
 /* --- All objectives complete --- */
 function showAllCompleteEgg(){
   Audio8.chest();
-  showSecretModal('全域探索完成！', '你已經拜訪了01F與02F的所有攤位，也打開了神秘寶箱。感謝你陪伴這趟像素冒險，願你把市集裡的故事一路帶著走。', '🏆 全達成獎章 已解鎖', true);
+  showSecretModal('全域探索完成！', '你拜訪了文創工藝坊全部九位職人、聽完他們的工藝故事，也用「隨機探索」認識了新品牌。感謝你陪伴這趟像素冒險，願你把市集裡的故事一路帶著走。', '🏆 全達成獎章 已解鎖', true);
   spawnFloat('🏆 全達成！', '#eaa213');
 }
 function toggleObjective(el, done){
@@ -747,42 +1180,38 @@ function toggleObjective(el, done){
 }
 
 /* ================================================================
-   TREASURE CHEST
+   RANDOM BRAND SPOTLIGHT（隨機認識一個品牌）
    ================================================================ */
+let exploreCount = 0;
 function openChest(){
-  if(chestOpened){
-    Audio8.error();
-    chestPokes++;
-    if(chestPokes>=5 && !easterFound){
-      chestPokes=0;
-      triggerChestPokeEgg();
-    } else {
-      spawnFloat('寶箱已經空了…', '#94a3b8');
-    }
-    return;
-  }
   Audio8.chest();
-  chestOpened=true;
-  document.getElementById('treasure-chest').textContent='📦';
-  document.getElementById('hud-chest').textContent='1';
-  toggleObjective(document.getElementById('objective-chest'), true);
-  updateHud();
+  exploreCount++;
 
-  // pick a random product from any brand that has products
-  const pool=[];
-  ['food','craft'].forEach(floor=>{
-    FLOOR_BRANDS[floor].forEach(b=>{
-      b.products.forEach(p=> pool.push({floor,brand:b.name,p}));
-    });
-  });
-  const pick=pool[Math.floor(Math.random()*pool.length)];
-  const priceLabel = pick.p[2].startsWith('NT$') ? pick.p[2] : 'NT$ '+pick.p[2];
+  // 第一次使用：完成任務目標、更新 HUD
+  if(!chestOpened){
+    chestOpened=true;
+    document.getElementById('treasure-chest').textContent='🗺️';
+    document.getElementById('hud-chest').textContent='1';
+    toggleObjective(document.getElementById('objective-chest'), true);
+    updateHud();
+  }
 
-  document.getElementById('secret-title').textContent='寶箱開啟！';
-  document.getElementById('secret-desc').textContent=`來自「${pick.brand}」的隱藏戰利品：\n${pick.p[0]}`;
-  document.getElementById('secret-reward').textContent=`售價 ${priceLabel}`;
+  // 隨機挑一個品牌來介紹
+  const pool=FLOOR_BRANDS.craft;
+  const b=pool[Math.floor(Math.random()*pool.length)];
+  const n=b.products.length;
+
+  document.querySelector('.secret-window').classList.remove('legendary');
+  document.getElementById('secret-title').textContent='隨機認識一個品牌';
+  document.getElementById('secret-desc').textContent=`「${b.name}」\n${b.intro[0]}`;
+  document.getElementById('secret-reward').textContent = n
+    ? `架上有 ${n} 項商品 ・ 到「🧵 工藝坊」看更多`
+    : '商品清單整理中，敬請期待';
   document.getElementById('secret-modal').classList.add('active');
-  spawnFloat('🎁 寶箱開啟！', '#eaa213');
+  spawnFloat('🧭 隨機介紹一個品牌', '#eaa213');
+
+  // 反覆點很多次的隱藏成就
+  if(exploreCount===8 && !easterFound){ setTimeout(triggerChestPokeEgg, 200); }
 }
 function closeSecret(){ Audio8.select(); document.getElementById('secret-modal').classList.remove('active'); }
 
