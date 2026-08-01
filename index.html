@@ -51,6 +51,10 @@ html,body{height:100%;background:linear-gradient(180deg,var(--dusk) 0%,var(--bg)
 .nav-tab{font-family:"Press Start 2P",monospace;font-size:12px;padding:9px 14px;background:rgba(16,28,43,.85);border:2px solid #4a3524;color:var(--dim);cursor:pointer;letter-spacing:1px;transition:all .1s;}
 .nav-tab:hover{color:var(--white);border-color:#8a6b48;}
 .nav-tab.active{background:#2a1b0e;color:var(--gold);border-color:var(--gold);}
+.tool-btn{font-family:"Press Start 2P",monospace;font-size:12px;padding:9px 12px;background:rgba(29,19,8,.85);
+  border:2px solid #4a3524;color:var(--dim);cursor:pointer;letter-spacing:1px;transition:all .1s;white-space:nowrap;}
+.tool-btn:hover{color:var(--white);border-color:#8a6b48;}
+.tool-btn.on{background:#2a1b0e;color:var(--gold);border-color:var(--gold);}
 #hud-stats{font-size:11px;color:var(--dim);text-align:right;line-height:1.9;}
 #hud-stats b{color:var(--jade);}
 
@@ -210,6 +214,9 @@ html,body{height:100%;background:linear-gradient(180deg,var(--dusk) 0%,var(--bg)
       <button class="nav-tab" id="tab-craft" onclick="switchScreen('craft')">🧵 工藝坊</button>
     </div>
     <div class="search-wrap"><i>🔍</i><input id="search" type="search" placeholder="搜尋品牌/商品..." oninput="onSearch(this.value)"></div>
+    <button id="music-btn" class="tool-btn" onclick="toggleMusic()" title="背景音樂開關">🎵 音樂</button>
+    <audio id="bgm" loop preload="auto"></audio>
+    <input type="file" id="music-file" accept="audio/*" style="display:none">
     <div id="hud-stats">探索攤位：<b id="hud-explored">0</b>/9<br>隨機探索：<b id="hud-chest">0</b>/1<br>隱藏彩蛋：<b id="hud-easter">0</b>/1</div>
   </div>
 
@@ -824,6 +831,7 @@ document.addEventListener('click', () => Audio8.init(), {once:true});
 
   function startGame(){
     Audio8.init(); Audio8.confirm();
+    try{ startMusicOnBegin(); }catch(e){}
     document.getElementById('title-screen').classList.add('hidden');
     document.getElementById('app').style.display='flex';
     setTimeout(()=>typeHomeLines(0), 300);
@@ -1223,6 +1231,62 @@ function spawnFloat(text,color){
   document.getElementById('global-float').appendChild(el);
   setTimeout(()=>el.remove(),1600);
 }
+
+/* ================================================================
+   BACKGROUND MUSIC（背景音樂）
+   ── 使用方式 ────────────────────────────────────────────────
+   1）把你的音樂檔命名為 bgm.mp3，放在與本 HTML 相同的資料夾即可
+      （想換檔名或格式，改下面 BGM_SRC，例如 'music/theme.ogg'）。
+   2）或直接點右上角「🎵 音樂」按鈕，選擇電腦裡的音樂檔（現場測試用）。
+   音樂會在點「PRESS START」時自動開始，可隨時用按鈕開關。
+   ================================================================ */
+const BGM_SRC = 'bgm.mp3';        // ← 你的背景音樂檔路徑；不需要時可留成 ''
+const BGM_VOLUME = 0.4;           // ← 音量 0~1，可自行調整
+const bgm = document.getElementById('bgm');
+let musicReady = false, musicOn = false, musicWanted = false;
+
+bgm.loop = true;
+bgm.volume = BGM_VOLUME;
+if (BGM_SRC) { bgm.src = BGM_SRC; musicReady = true; }
+
+bgm.addEventListener('error', () => {
+  // 找不到 bgm.mp3 時，退回「載入音樂」讓使用者手動選檔
+  if (bgm.src && !bgm.src.startsWith('blob:')) { musicReady = false; musicOn = false; updateMusicBtn(); }
+});
+
+function updateMusicBtn(){
+  const btn = document.getElementById('music-btn');
+  if (!musicReady) { btn.textContent = '🎵 載入音樂'; btn.classList.remove('on'); return; }
+  btn.textContent = musicOn ? '🔊 音樂：開' : '🔇 音樂：關';
+  btn.classList.toggle('on', musicOn);
+}
+
+function startMusicOnBegin(){
+  // 由「PRESS START」點擊觸發，滿足瀏覽器自動播放限制
+  musicWanted = true;
+  if (!musicReady) { updateMusicBtn(); return; }
+  bgm.play().then(()=>{ musicOn = true; updateMusicBtn(); })
+            .catch(()=>{ musicOn = false; updateMusicBtn(); });
+}
+
+function toggleMusic(){
+  Audio8.select();
+  if (!musicReady) { document.getElementById('music-file').click(); return; }
+  if (musicOn) { bgm.pause(); musicOn = false; }
+  else { bgm.play().catch(()=>{}); musicOn = true; }
+  updateMusicBtn();
+}
+
+document.getElementById('music-file').addEventListener('change', (e)=>{
+  const f = e.target.files[0]; if (!f) return;
+  bgm.src = URL.createObjectURL(f);
+  musicReady = true;
+  bgm.play().then(()=>{ musicOn = true; updateMusicBtn(); })
+            .catch(()=>{ musicOn = false; updateMusicBtn(); });
+  updateMusicBtn();
+});
+
+updateMusicBtn();
 
 updateHud();
 </script>
